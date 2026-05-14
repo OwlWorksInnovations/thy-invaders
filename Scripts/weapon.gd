@@ -9,6 +9,15 @@ func _ready() -> void:
 	var weapon: Sprite2D = weapon_sprites.pick_random()
 	weapon.queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.y -= speed * delta
+
+func _on_axe_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		body.queue_free()
+		queue_free()
+
+func _on_spear_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Enemy"):
+		body.queue_free()
+		queue_free()

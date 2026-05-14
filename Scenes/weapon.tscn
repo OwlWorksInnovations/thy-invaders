@@ -4,7 +4,12 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_17xbw"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er6cq"]
+size = Vector2(10.383839, 11.066667)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_er6cq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qv81b"]
 
 [node name="Weapon" type="Node2D" unique_id=1075167717 node_paths=PackedStringArray("weapon_sprites")]
 script = ExtResource("1_er6cq")
@@ -14,6 +19,21 @@ weapon_sprites = [NodePath("AxeSprite"), NodePath("SpearSprite")]
 scale = Vector2(15, 15)
 texture = SubResource("CanvasTexture_17xbw")
 
+[node name="AxeArea" type="Area2D" parent="AxeSprite" unique_id=1392300142]
+
+[node name="AxeCollision" type="CollisionShape2D" parent="AxeSprite/AxeArea" unique_id=1210638672]
+scale = Vector2(0.096, 0.09)
+shape = SubResource("RectangleShape2D_er6cq")
+
 [node name="SpearSprite" type="Sprite2D" parent="." unique_id=983178331]
 scale = Vector2(10, 30)
 texture = SubResource("CanvasTexture_er6cq")
+
+[node name="SpearArea" type="Area2D" parent="SpearSprite" unique_id=524884697]
+
+[node name="SpearCollision" type="CollisionShape2D" parent="SpearSprite/SpearArea" unique_id=621395355]
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_qv81b")
+
+[connection signal="body_entered" from="AxeSprite/AxeArea" to="." method="_on_axe_area_body_entered"]
+[connection signal="body_entered" from="SpearSprite/SpearArea" to="." method="_on_spear_area_body_entered"]
