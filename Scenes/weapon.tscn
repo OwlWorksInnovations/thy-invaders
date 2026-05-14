@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b0pyoyiha70cn"]
+
+[ext_resource type="Script" uid="uid://cnxjvr7sgo48j" path="res://Scripts/weapon.gd" id="1_er6cq"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_17xbw"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_er6cq"]
+
+[node name="Weapon" type="Node2D" unique_id=1075167717 node_paths=PackedStringArray("weapon_sprites")]
+script = ExtResource("1_er6cq")
+weapon_sprites = [NodePath("AxeSprite"), NodePath("SpearSprite")]
+
+[node name="AxeSprite" type="Sprite2D" parent="." unique_id=1310446299]
+scale = Vector2(15, 15)
+texture = SubResource("CanvasTexture_17xbw")
+
+[node name="SpearSprite" type="Sprite2D" parent="." unique_id=983178331]
+scale = Vector2(10, 30)
+texture = SubResource("CanvasTexture_er6cq")
